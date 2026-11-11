@@ -1,0 +1,68 @@
+[
+  {
+    "id": "producao",
+    "name": "Levantamento Diário de Produção",
+    "repo": "evandroomiix/levantamento-diario-producao",
+    "description": "Controle e apontamento diário da produção operacional.",
+    "category": "Operacional",
+    "icon_emoji": "📋",
+    "keywords": ["producao", "produção", "levantamento"],
+    "installed_version": "v1.0.0",
+    "fallback_exe": ""
+  },
+  {
+    "id": "inventario",
+    "name": "Dashboard de Inventário",
+    "repo": "evandroomiix/dashboard-inventario",
+    "description": "Monitoramento em tempo real de estoque, insumos e giros.",
+    "category": "Logística",
+    "icon_emoji": "📦",
+    "keywords": ["inventario", "inventário", "estoque"],
+    "installed_version": "v1.0.0",
+    "fallback_exe": ""
+  },
+  {
+    "id": "financeiro",
+    "name": "Dashboard Financeiro",
+    "repo": "evandroomiix/dashboard-financeiro",
+    "description": "Fluxo de caixa, DRE, conciliações e indicadores de custos.",
+    "category": "Controladoria",
+    "icon_emoji": "💰",
+    "keywords": ["financeiro", "finanças", "caixa"],
+    "installed_version": "v1.0.0",
+    "fallback_exe": ""
+  },
+  {
+    "id": "vendas",
+    "name": "Dashboard de Vendas",
+    "repo": "evandroomiix/dashboard-vendas",
+    "description": "Metas, conversões, faturamento e desempenho comercial.",
+    "category": "Comercial",
+    "icon_emoji": "📈",
+    "keywords": ["vendas", "comercial", "faturamento"],
+    "installed_version": "v1.0.0",
+    "fallback_exe": ""
+  },
+  {
+    "id": "cic",
+    "name": "CIC Reformulado",
+    "repo": "",
+    "description": "Consulta de clientes antigos, títulos a receber/quitados e movimentos de pedidos.",
+    "category": "Gestão",
+    "icon_emoji": "🏢",
+    "keywords": ["cic reformulado", "reformulado"],
+    "installed_version": "v2.0.0",
+    "fallback_exe": "D:\\Lojas Nordestina\\SISTEMAS E PROGRAMAS\\CIC\\CIC REFORMULADO\\dist\\CIC\\CIC.exe"
+  },
+  {
+    "id": "mysoft",
+    "name": "MYSOFT Reformulado",
+    "repo": "",
+    "description": "Sistema de consulta de cadastros de clientes antigos e histórico MYSOFT.",
+    "category": "Legado",
+    "icon_emoji": "💾",
+    "keywords": ["mysoft", "antigos", "clientes antigos"],
+    "installed_version": "v1.1.0",
+    "fallback_exe": "D:\\Lojas Nordestina\\SISTEMAS E PROGRAMAS\\MYSOFT\\dist\\Clientes Antigos.exe"
+  }
+]
