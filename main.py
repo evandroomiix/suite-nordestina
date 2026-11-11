@@ -1282,12 +1282,11 @@ class LauncherApp(ctk.CTk):
                 webbrowser.open(html_url)
             return
 
-        asset = assets[0]
-        download_url = asset.get("url")
+        token = self.config.get("github_token", "")
+        asset = github_service.find_asset_for_download(assets, preferred_name=project_data.get("name")) or assets[0]
+        download_url = asset.get("url") if (token and asset.get("url")) else asset.get("browser_download_url")
         asset_name = asset.get("name", "app.zip")
         p_id = project_data["id"]
-
-        token = self.config.get("github_token", "")
         self.lbl_status.configure(text=f"Baixando {asset_name} ({tag_name})...")
         self.btn_refresh.configure(state="disabled")
         if hasattr(self, "btn_update_all"):
@@ -1402,8 +1401,8 @@ class LauncherApp(ctk.CTk):
                     fail_count += 1
                     continue
 
-                asset = assets[0]
-                download_url = asset.get("url")
+                asset = github_service.find_asset_for_download(assets, preferred_name=p_name) or assets[0]
+                download_url = asset.get("url") if (token and asset.get("url")) else asset.get("browser_download_url")
                 asset_name = asset.get("name", f"{p_id}.zip")
                 dest_temp_path = os.path.join(tempfile.gettempdir(), asset_name)
 

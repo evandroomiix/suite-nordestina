@@ -24,6 +24,7 @@ tmp/
 # Configurações locais / segredos
 .env
 local_settings.py
+assets/corporate_credentials.dat
 
 # Arquivos de IDEs e editores
 .vscode/

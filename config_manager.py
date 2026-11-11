@@ -9,6 +9,23 @@ except ImportError:
     __default_repo__ = "evandroomiix/suite-nordestina"
     __author__ = "Evandro Magno"
 
+def get_default_github_token():
+    """Retorna a credencial corporativa padrão para leitura de releases em novos computadores."""
+    base_paths = []
+    if getattr(sys, '_MEIPASS', False):
+        base_paths.append(sys._MEIPASS)
+    base_paths.append(os.path.dirname(os.path.abspath(__file__)))
+
+    for bp in base_paths:
+        fpath = os.path.join(bp, "assets", "corporate_credentials.dat")
+        if os.path.exists(fpath):
+            try:
+                with open(fpath, "r", encoding="utf-8") as f:
+                    return f.read().strip()
+            except Exception:
+                pass
+    return ""
+
 DEFAULT_PROJECTS = [
     {
         "id": "producao",
@@ -85,7 +102,7 @@ DEFAULT_CONFIG = {
     "view_mode": "cards",  # "cards" ou "table"
     "appearance_mode": "dark",  # "dark" ou "light"
     "admin_password": "admin",  # Senha padrão de administrador para configurações sensíveis
-    "github_token": "",
+    "github_token": get_default_github_token(),
     "check_interval_minutes": 60,
     "minimize_to_tray": True,
     "projects": DEFAULT_PROJECTS
@@ -138,6 +155,10 @@ def load_config():
             # Sincroniza sempre a versão do executável atual com o arquivo de configuração
             data["launcher_version"] = __version__
             
+            # Garante que o token corporativo esteja configurado se estiver vazio
+            if not data.get("github_token") or not str(data.get("github_token")).strip():
+                data["github_token"] = get_default_github_token()
+
             # Migração de repositório antigo para o oficial se aplicável
             if data.get("launcher_repo") == "evandroomiix/hub-launcher":
                 data["launcher_repo"] = __default_repo__
